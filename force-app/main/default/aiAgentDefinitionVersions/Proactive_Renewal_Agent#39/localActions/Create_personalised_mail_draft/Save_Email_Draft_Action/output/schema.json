@@ -1,0 +1,38 @@
+{
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "emailDraftId" : {
+      "title" : "emailDraftId",
+      "description" : "The EmailMessage Id of the generated email draft.",
+      "lightning:type" : "lightning__recordIdType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    },
+    "opportunityId" : {
+      "title" : "opportunityId",
+      "description" : "The Salesforce Opportunity record Id associated with the generated draft.",
+      "lightning:type" : "lightning__recordIdType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    },
+    "opportunityName" : {
+      "title" : "opportunityName",
+      "description" : "The Opportunity Name associated with the generated draft.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    },
+    "statusMessage" : {
+      "title" : "statusMessage",
+      "description" : "A confirmation or error message indicating the outcome of the email draft generation process.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

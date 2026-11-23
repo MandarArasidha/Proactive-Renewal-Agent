@@ -1,0 +1,42 @@
+{
+  "required" : [ "accountEmailAddress", "generatedEmailDraft", "opportunityId", "opportunityName" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "accountEmailAddress" : {
+      "title" : "accountEmailAddress",
+      "description" : "The email address of the sender, Typically this is the custom field named - Account_mail_Id__c as email address. ",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "generatedEmailDraft" : {
+      "title" : "generatedEmailDraft",
+      "description" : "The email draft that the prompt template generated",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "opportunityId" : {
+      "title" : "opportunityId",
+      "description" : "The Salesforce Opportunity record Id for which the email draft should be generated. Use the Opportunity from the current record context or from a Get Records action.",
+      "lightning:type" : "lightning__recordIdType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "opportunityName" : {
+      "title" : "opportunityName",
+      "description" : "The Opportunity Name used for personalization within the email draft.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "receiverEmail" : {
+      "title" : "receiverEmail",
+      "description" : "The email address of the intended recipient of the draft email. Typically this is the Primary Contact email address.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

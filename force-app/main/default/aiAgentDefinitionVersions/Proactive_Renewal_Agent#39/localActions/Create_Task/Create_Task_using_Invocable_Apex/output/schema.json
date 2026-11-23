@@ -1,0 +1,22 @@
+{
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "resultMessage" : {
+      "title" : "resultMessage",
+      "description" : "A confirmation message indicating whether the task was successfully created and associated with the specified records.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    },
+    "taskId" : {
+      "title" : "taskId",
+      "description" : "The Salesforce Id of the created Task record.",
+      "lightning:type" : "lightning__recordIdType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>ECC8poReOwqLvZq1xSE+i5CT8DrpJAPdWxIMcaDAjXc=_2</activeVersionIdentifier>
+    <developerName>Urgent_Outreach_Draft_Email_Template</developerName>
+    <masterLabel>Urgent Outreach Draft Email Template</masterLabel>
+    <overridable>false</overridable>
+    <templateVersions>
+        <content>You are a customer success renewal specialist.
+Generate a personalized outreach email.
+Context:
+Opportunity: {!$Apex:GetAtRiskRenewalOpportunities.opportunityName}
+Stage: {!$Apex:GetAtRiskRenewalOpportunities.StageName}
+Contract End Date: {!$Apex:GetAtRiskRenewalOpportunities.ContractEndDate}
+Last Activity Date: {!$Apex:GetAtRiskRenewalOpportunities.LastActivityDate}
+CSAT score: {!$Apex:GetAtRiskRenewalOpportunities.csatScore}
+Open Cases: {!$Apex:GetAtRiskRenewalOpportunities.openCases}
+  Instructions:  for each Opportunity, generate a personalized outreach email draft using a Prompt Builder template that reads account health signals such as Opportunity Stage, Contract End Date, Last Activity Date, CSAT Score (customer satisfaction ), and number of open Cases. The tone of the email should automatically adjust 
+renewal is within 30 days, use urgent tone.
+Keep professional and concise.
+
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>apex://GetAtRiskRenewalOpportunities</definition>
+            <description>returns open opportunity with contracts expiring soon and are inactive</description>
+            <label>get at risk Renewal Opportunity</label>
+            <referenceName>Apex:GetAtRiskRenewalOpportunities</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>ECC8poReOwqLvZq1xSE+i5CT8DrpJAPdWxIMcaDAjXc=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a customer success renewal specialist.
+Generate a personalized outreach email.
+Context:
+Opportunity: {!$Apex:GetAtRiskRenewalOpportunities.opportunityName}
+Stage: {!$Apex:GetAtRiskRenewalOpportunities.StageName}
+Contract End Date: {!$Apex:GetAtRiskRenewalOpportunities.ContractEndDate}
+Last Activity Date: {!$Apex:GetAtRiskRenewalOpportunities.LastActivityDate}
+CSAT score: {!$Apex:GetAtRiskRenewalOpportunities.csatScore}
+Open Cases: {!$Apex:GetAtRiskRenewalOpportunities.openCases}
+  Instructions:  for each Opportunity, generate a personalized outreach email draft using a Prompt Builder template that reads account health signals such as Opportunity Stage, Contract End Date, Last Activity Date, CSAT Score (customer satisfaction ), and number of open Cases. The tone of the email should automatically adjust 
+renewal is within 30 days, that is if the Template Type is {!$Apex:GetAtRiskRenewalOpportunities.emailTemplateType}, use urgent tone.
+Keep professional and concise.
+
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>apex://GetAtRiskRenewalOpportunities</definition>
+            <description>returns open opportunity with contracts expiring soon and are inactive</description>
+            <label>get at risk Renewal Opportunity</label>
+            <referenceName>Apex:GetAtRiskRenewalOpportunities</referenceName>
+        </templateDataProviders>
+        <templateFormat>FormulaExpression</templateFormat>
+        <versionIdentifier>ECC8poReOwqLvZq1xSE+i5CT8DrpJAPdWxIMcaDAjXc=_2</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

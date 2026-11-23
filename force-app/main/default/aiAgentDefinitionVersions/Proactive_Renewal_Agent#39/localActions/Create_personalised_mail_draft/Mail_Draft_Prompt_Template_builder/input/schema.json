@@ -1,0 +1,59 @@
+{
+  "required" : [ ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "Input:receiverName" : {
+      "title" : "receiverName",
+      "description" : "The customer contact name that should appear as the recipient of the email draft. Typically this is the Primary Contact associated with the Opportunity.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "Input:openCases" : {
+      "title" : "openCases",
+      "description" : "The number of currently open support cases associated with the Opportunities Account. Use this to identify customer concerns and personalise outreach.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "Input:Opportunity" : {
+      "title" : "Opportunity",
+      "description" : "the opportunity Id that in which the Prompt template is being draft for. ",
+      "lightning:type" : "lightning__recordInfoType",
+      "lightning:sObjectInfo" : {
+        "apiName" : "Opportunity"
+      },
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "Input:AccountName" : {
+      "title" : "AccountName",
+      "description" : "The Account Name associated with the Opportunity. Use for personalisation and contextual references in the email content.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "Input:emailTemplateType" : {
+      "title" : "emailTemplateType",
+      "description" : "Template type selected by the Agent such as URGENT or NURTURING.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "outputLanguage" : {
+      "title" : "Output language",
+      "description" : "Optional. Specify the response language using the appropriate two-character language code or five-character locale code (for example, en_US, en_GB, es, es_MX).",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "isPreviewOnly" : {
+      "title" : "Preview Only",
+      "description" : "Resolves the prompt template without generating an LLM response.",
+      "lightning:type" : "lightning__booleanType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

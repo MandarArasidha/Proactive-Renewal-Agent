@@ -1,0 +1,38 @@
+{
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "chatterPostId" : {
+      "title" : "chatterPostId",
+      "description" : "Chatter Post Id",
+      "lightning:type" : "lightning__recordIdType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    },
+    "linkedEmailDraftId" : {
+      "title" : "linkedEmailDraftId",
+      "description" : "Linked Email Draft Id",
+      "lightning:type" : "lightning__recordIdType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    },
+    "statusMessage" : {
+      "title" : "statusMessage",
+      "description" : "Status Message",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    },
+    "summarizedContent" : {
+      "title" : "summarizedContent",
+      "description" : "Summarized Content",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

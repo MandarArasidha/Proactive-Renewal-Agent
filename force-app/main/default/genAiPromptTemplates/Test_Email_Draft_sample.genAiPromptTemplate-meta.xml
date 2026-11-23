@@ -1,0 +1,945 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>ECC8poReOwqLvZq1xSE+i5CT8DrpJAPdWxIMcaDAjXc=_17</activeVersionIdentifier>
+    <developerName>Test_Email_Draft_sample</developerName>
+    <masterLabel>Test Email Draft sample</masterLabel>
+    <overridable>false</overridable>
+    <templateVersions>
+        <content> You are a customer success renewal specialist.
+Generate a personalized outreach email. 
+  
+Opportunity: {!$Apex:createTaskForAccountsInvocablemethod.opportunityName} 
+Opportunity Owner: {!$Apex:createTaskForAccountsInvocablemethod.OpportunityOwner}
+
+Instructions: for Opportunity, generate a personalized outreach email draft using a Prompt Builder template 
+Use Nurturing Tone. Keep professional and concise.
+
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>apex://createTaskForAccountsInvocablemethod</definition>
+            <description>returns open opportunity with contracts expiring soon and are inactive</description>
+            <label>get at risk Renewal Opportunity v2</label>
+            <referenceName>Apex:createTaskForAccountsInvocablemethod</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>ECC8poReOwqLvZq1xSE+i5CT8DrpJAPdWxIMcaDAjXc=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content> You are a customer success renewal specialist.
+Generate a personalized outreach email. 
+  
+Opportunity: {!$Apex:createTaskForAccountsInvocablemethod.opportunityName} 
+
+
+Instructions: for Opportunity, generate a personalized outreach email draft using a Prompt Builder template 
+Use Nurturing Tone. Keep professional and concise.
+
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>apex://createTaskForAccountsInvocablemethod</definition>
+            <description>returns open opportunity with contracts expiring soon and are inactive</description>
+            <label>get at risk Renewal Opportunity v2</label>
+            <referenceName>Apex:createTaskForAccountsInvocablemethod</referenceName>
+        </templateDataProviders>
+        <templateFormat>FormulaExpression</templateFormat>
+        <versionIdentifier>ECC8poReOwqLvZq1xSE+i5CT8DrpJAPdWxIMcaDAjXc=_2</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content> You are a customer success renewal specialist.
+Generate a personalized outreach email. 
+  
+Opportunity: {!$Input:Opportunity.Id}
+
+Instructions: for Opportunity, generate a personalized outreach email draft using a Prompt Builder template 
+Use Nurturing Tone. Keep professional and concise.
+
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>Opportunity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <masterLabel>Opportunity</masterLabel>
+            <referenceName>Input:Opportunity</referenceName>
+            <required>false</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <templateFormat>FormulaExpression</templateFormat>
+        <versionIdentifier>ECC8poReOwqLvZq1xSE+i5CT8DrpJAPdWxIMcaDAjXc=_3</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content> You are a customer success renewal specialist.
+Generate a personalized outreach email. 
+  
+Opportunity: {!$Input:Opportunity.Id}
+Email Reciever name: 
+Opportunity Name{!$Input:Opportunity.Name}: 
+Opportunity Owner: {!$Input:Opportunity.Owner.Alias}
+Stage: {!$Input:Opportunity.StageName}
+Contract End Date: {!$Input:Opportunity.Contract.EndDate}
+Last Activity Date: {!$Input:Opportunity.LastActivityDate}
+CSAT score: {!$Input:Opportunity.CSAT_Score__c}
+Open Cases: 
+
+
+Template Type:
+Instructions: for this opportunity, generate a personalized outreach email draft using the template type specified that reads account health signals such as Opportunity Stage, Contract End Date, Last Activity Date, CSAT Score (customer satisfaction ), and number of open Cases. The tone of the email should automatically adjust. When Template Type is Nurturing use Nurturing Tone.
+and when its Urgent use Urgent Tone.
+Keep professional and concise.
+
+
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>Opportunity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <masterLabel>Opportunity</masterLabel>
+            <referenceName>Input:Opportunity</referenceName>
+            <required>false</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <templateFormat>FormulaExpression</templateFormat>
+        <versionIdentifier>ECC8poReOwqLvZq1xSE+i5CT8DrpJAPdWxIMcaDAjXc=_4</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a Opportunity renewal specialist.
+Context-
+Opportunity: {!$Input:Opportunity.Id}
+Email Reciever name: {!$Input:receiverName}
+Opportunity Name{!$Input:Opportunity.Name}: 
+Opportunity Owner: {!$Input:Opportunity.Owner.Alias}
+Stage: {!$Input:Opportunity.StageName}
+Contract End Date: {!$Input:Opportunity.Contract.EndDate}
+Last Activity Date: {!$Input:Opportunity.LastActivityDate}
+CSAT score: {!$Input:Opportunity.CSAT_Score__c}
+Open Cases: {!$Input:openCases}
+Template Type:{!$Input:emailTemplateType}
+Instructions: for this opportunity, generate a personalized outreach email draft using the template type specified that reads account health signals with the data provided for context. The tone of the email should adjust according to Template Type is for Nurturing use Nurturing Tone and when its Urgent use Urgent Tone.
+Keep professional and concise.
+
+
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>Opportunity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <masterLabel>Opportunity</masterLabel>
+            <referenceName>Input:Opportunity</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>openCases</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>openCases</masterLabel>
+            <referenceName>Input:openCases</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>receiverName</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>receiverName</masterLabel>
+            <referenceName>Input:receiverName</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>emailTemplateType</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>emailTemplateType</masterLabel>
+            <referenceName>Input:emailTemplateType</referenceName>
+            <required>false</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <templateFormat>FormulaExpression</templateFormat>
+        <versionIdentifier>ECC8poReOwqLvZq1xSE+i5CT8DrpJAPdWxIMcaDAjXc=_5</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a Opportunity renewal specialist.
+Context-
+Opportunity: {!$Input:Opportunity.Id}
+Email Reciever name: {!$Input:receiverName}
+Opportunity Name{!$Input:Opportunity.Name}: 
+Opportunity Owner: {!$Input:Opportunity.Owner.Alias}
+Stage: {!$Input:Opportunity.StageName}
+Contract End Date: {!$Input:Opportunity.Contract.EndDate}
+Last Activity Date: {!$Input:Opportunity.LastActivityDate}
+CSAT score: {!$Input:Opportunity.CSAT_Score__c}
+Open Cases: {!$Input:openCases}
+Template Type:{!$Input:emailTemplateType}
+Instructions: for this opportunity, generate a personalized outreach email draft using the template type specified that reads account health signals with the data provided for context. The tone of the email should adjust according to Template Type is for Nurturing use Nurturing Tone and when its Urgent use Urgent Tone.
+Keep professional and concise.
+
+
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>emailTemplateType</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>emailTemplateType</masterLabel>
+            <referenceName>Input:emailTemplateType</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>receiverName</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>receiverName</masterLabel>
+            <referenceName>Input:receiverName</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>openCases</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>openCases</masterLabel>
+            <referenceName>Input:openCases</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>Opportunity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <masterLabel>Opportunity</masterLabel>
+            <referenceName>Input:Opportunity</referenceName>
+            <required>false</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <templateFormat>FormulaExpression</templateFormat>
+        <versionIdentifier>ECC8poReOwqLvZq1xSE+i5CT8DrpJAPdWxIMcaDAjXc=_6</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a Opportunity renewal specialist.
+Context-
+Opportunity: {!$Input:Opportunity.Id}
+Email Reciever name: {!$Input:receiverName}
+Opportunity Name{!$Input:Opportunity.Name}: 
+Opportunity Owner: {!$Input:Opportunity.Owner.Alias}
+Stage: {!$Input:Opportunity.StageName}
+Contract End Date: {!$Input:Opportunity.Contract.EndDate}
+Last Activity Date: {!$Input:Opportunity.LastActivityDate}
+CSAT score: {!$Input:Opportunity.CSAT_Score__c}
+Open Cases: {!$Input:openCases}
+Template Type:{!$Input:emailTemplateType}
+Instructions: for this opportunity, generate a personalized outreach email draft using the template type specified that reads account health signals with the data provided for context. If Last Activity is Null, consider it as No activity in the past. Don&apos;t mention the Opportunity Id anywhere. The tone of the email should adjust according to Template Type is for Nurturing use Nurturing Tone and when its Urgent use Urgent Tone.
+Keep professional, concise and brief.
+
+
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>Opportunity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <masterLabel>Opportunity</masterLabel>
+            <referenceName>Input:Opportunity</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>openCases</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>openCases</masterLabel>
+            <referenceName>Input:openCases</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>receiverName</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>receiverName</masterLabel>
+            <referenceName>Input:receiverName</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>emailTemplateType</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>emailTemplateType</masterLabel>
+            <referenceName>Input:emailTemplateType</referenceName>
+            <required>false</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <templateFormat>FormulaExpression</templateFormat>
+        <versionIdentifier>ECC8poReOwqLvZq1xSE+i5CT8DrpJAPdWxIMcaDAjXc=_7</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a Opportunity renewal specialist.
+Context-
+Opportunity: {!$Input:Opportunity.Id} (Don&apos;t mention this on Draft Mail Response)
+Email Reciever name: {!$Input:receiverName}
+Opportunity Name{!$Input:Opportunity.Name}: 
+Opportunity Owner: {!$Input:Opportunity.Owner.Alias}
+Stage: {!$Input:Opportunity.StageName}
+Contract End Date: {!$Input:Opportunity.Contract.EndDate}
+Last Activity Date: {!$Input:Opportunity.LastActivityDate}
+CSAT score: {!$Input:Opportunity.CSAT_Score__c}
+Open Cases: {!$Input:openCases}
+Template Type:{!$Input:emailTemplateType}
+Instructions: for this opportunity, generate a personalized outreach email draft using the template type specified that reads account health signals with the data provided for context. If Last Activity is Null, consider it as No activity in the past. Don&apos;t mention the Opportunity Id anywhere. The tone of the email should adjust according to Template Type is for Nurturing use Nurturing Tone and when its Urgent use Urgent Tone.
+Keep professional, concise and brief.
+
+
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>emailTemplateType</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>emailTemplateType</masterLabel>
+            <referenceName>Input:emailTemplateType</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>receiverName</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>receiverName</masterLabel>
+            <referenceName>Input:receiverName</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>openCases</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>openCases</masterLabel>
+            <referenceName>Input:openCases</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>Opportunity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <masterLabel>Opportunity</masterLabel>
+            <referenceName>Input:Opportunity</referenceName>
+            <required>false</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <templateFormat>FormulaExpression</templateFormat>
+        <versionIdentifier>ECC8poReOwqLvZq1xSE+i5CT8DrpJAPdWxIMcaDAjXc=_8</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a Opportunity renewal specialist.
+Context-
+Opportunity: {!$Input:Opportunity.Id} (Don&apos;t mention this on Draft Mail Response)
+Email Reciever name: {!$Input:receiverName}
+SenderName:{!$Input:AccountName}
+Opportunity Name{!$Input:Opportunity.Name}: 
+Opportunity Owner: {!$Input:Opportunity.Owner.Alias}
+Stage: {!$Input:Opportunity.StageName}
+Contract End Date: {!$Input:Opportunity.Contract.EndDate}
+Last Activity Date: {!$Input:Opportunity.LastActivityDate}
+CSAT score: {!$Input:Opportunity.CSAT_Score__c}
+Open Cases: {!$Input:openCases}
+Template Type:{!$Input:emailTemplateType}
+Instructions: for this opportunity, generate a personalized outreach email draft using the template type specified that reads account health signals with the data provided for context. If Last Activity is Null, consider it as No activity in the past. Don&apos;t mention the Opportunity Id anywhere. The tone of the email should adjust according to Template Type is for Nurturing use Nurturing Tone and when its Urgent use Urgent Tone.
+Keep professional, concise and brief.
+
+
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>Opportunity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <masterLabel>Opportunity</masterLabel>
+            <referenceName>Input:Opportunity</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>openCases</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>openCases</masterLabel>
+            <referenceName>Input:openCases</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>receiverName</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>receiverName</masterLabel>
+            <referenceName>Input:receiverName</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>emailTemplateType</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>emailTemplateType</masterLabel>
+            <referenceName>Input:emailTemplateType</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>AccountName</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>AccountName</masterLabel>
+            <referenceName>Input:AccountName</referenceName>
+            <required>false</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <templateFormat>FormulaExpression</templateFormat>
+        <versionIdentifier>ECC8poReOwqLvZq1xSE+i5CT8DrpJAPdWxIMcaDAjXc=_9</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a Opportunity renewal specialist.
+Context-
+Opportunity: {!$Input:Opportunity.Id} (Don&apos;t mention this on Draft Mail Response)
+Email Reciever name: {!$Input:receiverName}
+SenderName:{!$Input:AccountName} (Account Manager)
+Opportunity Name{!$Input:Opportunity.Name}: 
+Opportunity Owner: {!$Input:Opportunity.Owner.Alias}(no need to mention this)
+Stage: {!$Input:Opportunity.StageName}
+Contract End Date: {!$Input:Opportunity.Contract.EndDate}
+Last Activity Date: {!$Input:Opportunity.LastActivityDate}
+CSAT score: {!$Input:Opportunity.CSAT_Score__c}
+Open Cases: {!$Input:openCases}
+Template Type:{!$Input:emailTemplateType}
+Instructions: for this opportunity, generate a personalized outreach email draft using the template type specified that reads account health signals with the data provided for context. If Last Activity is Null, consider it as No activity in the past. Don&apos;t mention the Opportunity Id anywhere. The tone of the email should adjust according to Template Type is for Nurturing use Nurturing Tone and when its Urgent use Urgent Tone.
+Keep professional, concise and brief.
+
+
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>AccountName</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>AccountName</masterLabel>
+            <referenceName>Input:AccountName</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>emailTemplateType</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>emailTemplateType</masterLabel>
+            <referenceName>Input:emailTemplateType</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>receiverName</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>receiverName</masterLabel>
+            <referenceName>Input:receiverName</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>openCases</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>openCases</masterLabel>
+            <referenceName>Input:openCases</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>Opportunity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <masterLabel>Opportunity</masterLabel>
+            <referenceName>Input:Opportunity</referenceName>
+            <required>false</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <templateFormat>FormulaExpression</templateFormat>
+        <versionIdentifier>ECC8poReOwqLvZq1xSE+i5CT8DrpJAPdWxIMcaDAjXc=_10</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a Opportunity renewal specialist.
+Context-
+Opportunity: {!$Input:Opportunity.Id} (Don&apos;t mention this on Draft Mail Response)
+Email Reciever name: {!$Input:receiverName} (greet Reciever)
+SenderName:{!$Input:AccountName} (Account Manager, mention Account Sender Name)
+Opportunity Name{!$Input:Opportunity.Name}
+Opportunity Owner: {!$Input:Opportunity.Owner.Alias}(no need to mention this)
+Stage: {!$Input:Opportunity.StageName}
+Contract End Date: {!$Input:Opportunity.Contract.EndDate}
+Last Activity Date: {!$Input:Opportunity.LastActivityDate}
+CSAT score: {!$Input:Opportunity.CSAT_Score__c}
+Open Cases: {!$Input:openCases}
+Template Type:{!$Input:emailTemplateType}
+Instructions: for this opportunity, generate a personalized outreach email draft using the template type specified that reads account health signals with the data provided for context. If Last Activity is Null, consider it as No activity in the past. Don&apos;t mention the Opportunity Id anywhere. The tone of the email should adjust according to Template Type is for Nurturing use Nurturing Tone and when its Urgent use Urgent Tone.
+Keep professional, concise and brief.
+
+
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>Opportunity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <masterLabel>Opportunity</masterLabel>
+            <referenceName>Input:Opportunity</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>openCases</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>openCases</masterLabel>
+            <referenceName>Input:openCases</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>receiverName</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>receiverName</masterLabel>
+            <referenceName>Input:receiverName</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>emailTemplateType</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>emailTemplateType</masterLabel>
+            <referenceName>Input:emailTemplateType</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>AccountName</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>AccountName</masterLabel>
+            <referenceName>Input:AccountName</referenceName>
+            <required>false</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <templateFormat>FormulaExpression</templateFormat>
+        <versionIdentifier>ECC8poReOwqLvZq1xSE+i5CT8DrpJAPdWxIMcaDAjXc=_11</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a Opportunity renewal specialist.
+Always Include a Subject Line.
+Context-
+Opportunity: {!$Input:Opportunity.Id} (Don&apos;t mention this on Draft Mail Response)
+Email Reciever name: {!$Input:receiverName} (greet Reciever)
+SenderName:{!$Input:AccountName} (Account Manager, mention Account Sender Name)
+Opportunity Name{!$Input:Opportunity.Name}
+Opportunity Owner: {!$Input:Opportunity.Owner.Alias}(no need to mention this)
+Stage: {!$Input:Opportunity.StageName}
+Contract End Date: {!$Input:Opportunity.Contract.EndDate}
+Last Activity Date: {!$Input:Opportunity.LastActivityDate} (If Last Activity is Null, consider it as No activity in the past.)
+CSAT score: {!$Input:Opportunity.CSAT_Score__c}
+Open Cases: {!$Input:openCases}
+Template Type:{!$Input:emailTemplateType}
+Instructions: for this opportunity, generate a personalized outreach email draft using the template type specified that reads account health signals with the data provided for context. Don&apos;t mention the Opportunity Id anywhere. The tone of the email should adjust according to Template Type is for Nurturing use Nurturing Tone and when its Urgent use Urgent Tone.
+Keep professional, concise and brief.
+
+
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>AccountName</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>AccountName</masterLabel>
+            <referenceName>Input:AccountName</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>emailTemplateType</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>emailTemplateType</masterLabel>
+            <referenceName>Input:emailTemplateType</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>receiverName</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>receiverName</masterLabel>
+            <referenceName>Input:receiverName</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>openCases</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>openCases</masterLabel>
+            <referenceName>Input:openCases</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>Opportunity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <masterLabel>Opportunity</masterLabel>
+            <referenceName>Input:Opportunity</referenceName>
+            <required>false</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <templateFormat>FormulaExpression</templateFormat>
+        <versionIdentifier>ECC8poReOwqLvZq1xSE+i5CT8DrpJAPdWxIMcaDAjXc=_12</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a Opportunity renewal specialist.
+Always Include a Subject Line.
+Context-
+Opportunity: {!$Input:Opportunity.Id} (Don&apos;t mention this on Draft Mail Response)
+Email Reciever name: {!$Input:receiverName} (greet Reciever)
+SenderName:{!$Input:AccountName} (Account Manager, mention Account Sender Name)
+Opportunity Name{!$Input:Opportunity.Name}
+Opportunity Owner: {!$Input:Opportunity.Owner.Alias}(no need to mention this)
+Stage: {!$Input:Opportunity.StageName}
+Contract End Date: {!$Input:Opportunity.Contract.EndDate}
+Last Activity Date: {!$Input:Opportunity.LastActivityDate} Always check If Last Activity is Null, if yes mention No activity in the past.
+CSAT score: {!$Input:Opportunity.CSAT_Score__c}
+Open Cases: {!$Input:openCases}
+Template Type:{!$Input:emailTemplateType}
+Instructions: for this opportunity, generate a personalized outreach email draft using the template type specified that reads account health signals with the data provided for context. Don&apos;t mention the Opportunity Id anywhere. The tone of the email should adjust according to Template Type is for Nurturing use Nurturing Tone and when its Urgent use Urgent Tone.
+Keep professional, concise and brief.
+
+
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>Opportunity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <masterLabel>Opportunity</masterLabel>
+            <referenceName>Input:Opportunity</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>openCases</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>openCases</masterLabel>
+            <referenceName>Input:openCases</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>receiverName</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>receiverName</masterLabel>
+            <referenceName>Input:receiverName</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>emailTemplateType</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>emailTemplateType</masterLabel>
+            <referenceName>Input:emailTemplateType</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>AccountName</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>AccountName</masterLabel>
+            <referenceName>Input:AccountName</referenceName>
+            <required>false</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <templateFormat>FormulaExpression</templateFormat>
+        <versionIdentifier>ECC8poReOwqLvZq1xSE+i5CT8DrpJAPdWxIMcaDAjXc=_13</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a Opportunity renewal specialist.
+Always Include a Subject Line.
+Context-
+Opportunity: {!$Input:Opportunity.Id} (Don&apos;t mention this on Draft Mail Response)
+Email Reciever name: {!$Input:receiverName} (greet Reciever)
+SenderName:{!$Input:AccountName} (Account Manager, mention Account Sender Name)
+Opportunity Name{!$Input:Opportunity.Name}
+Opportunity Owner: {!$Input:Opportunity.Owner.Alias}(no need to mention this)
+Stage: {!$Input:Opportunity.StageName}
+Contract End Date: {!$Input:Opportunity.Contract.EndDate}
+Last Activity Date: {!$Input:Opportunity.LastActivityDate} Always check If Last Activity is Null, if yes mention No activity in the past.
+CSAT score: {!$Input:Opportunity.CSAT_Score__c}
+Open Cases: {!$Input:openCases}
+Template Type:{!$Input:emailTemplateType}
+Instructions: for this opportunity, generate a personalized outreach email draft using the template type specified that reads account health signals with the data provided for context. Don&apos;t mention the Opportunity Id anywhere. The tone of the email should adjust according to Template Type is for Nurturing use Nurturing Tone and when its Urgent use Urgent Tone.
+Keep professional, concise and brief.
+
+
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>AccountName</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>AccountName</masterLabel>
+            <referenceName>Input:AccountName</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>emailTemplateType</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>emailTemplateType</masterLabel>
+            <referenceName>Input:emailTemplateType</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>receiverName</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>receiverName</masterLabel>
+            <referenceName>Input:receiverName</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>openCases</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>openCases</masterLabel>
+            <referenceName>Input:openCases</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>Opportunity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <masterLabel>Opportunity</masterLabel>
+            <referenceName>Input:Opportunity</referenceName>
+            <required>false</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5</primaryModel>
+        <status>Published</status>
+        <templateFormat>FormulaExpression</templateFormat>
+        <versionIdentifier>ECC8poReOwqLvZq1xSE+i5CT8DrpJAPdWxIMcaDAjXc=_14</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a Opportunity renewal specialist.
+Always Include a Subject Line.
+Context-
+Opportunity: {!$Input:Opportunity.Id} (Don&apos;t mention this on Draft Mail Response)
+Email Reciever name: {!$Input:receiverName} (greet Reciever)
+SenderName:{!$Input:AccountName} (Account Manager, mention Account Sender Name)
+Opportunity Name{!$Input:Opportunity.Name}
+Opportunity Owner: {!$Input:Opportunity.Owner.Alias}(no need to mention this)
+Stage: {!$Input:Opportunity.StageName}
+Contract End Date: {!$Input:Opportunity.Contract.EndDate}
+Last Activity Date: {!$Input:Opportunity.LastActivityDate} Always check If Last Activity is Null, if yes mention No activity in the past.
+CSAT score: {!$Input:Opportunity.CSAT_Score__c}
+Open Cases: {!$Input:openCases}
+Template Type:{!$Input:emailTemplateType}
+Instructions: for this opportunity, generate a personalized outreach email draft using the template type specified that reads account health signals with the data provided for context. Don&apos;t mention the Opportunity Id anywhere. The tone of the email should adjust according to Template Type is for Nurturing use Nurturing Tone and when its Urgent use Urgent Tone.
+Keep professional, concise and brief.
+
+
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>Opportunity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <masterLabel>Opportunity</masterLabel>
+            <referenceName>Input:Opportunity</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>openCases</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>openCases</masterLabel>
+            <referenceName>Input:openCases</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>receiverName</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>receiverName</masterLabel>
+            <referenceName>Input:receiverName</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>emailTemplateType</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>emailTemplateType</masterLabel>
+            <referenceName>Input:emailTemplateType</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>AccountName</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>AccountName</masterLabel>
+            <referenceName>Input:AccountName</referenceName>
+            <required>false</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT54</primaryModel>
+        <status>Published</status>
+        <templateFormat>FormulaExpression</templateFormat>
+        <versionIdentifier>ECC8poReOwqLvZq1xSE+i5CT8DrpJAPdWxIMcaDAjXc=_15</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a Opportunity renewal specialist.
+Always Include a Subject Line.
+Context-
+Opportunity: {!$Input:Opportunity.Id} (Don&apos;t mention this on Draft Mail Response)
+Email Reciever name: {!$Input:receiverName} (greet Reciever)
+SenderName:{!$Input:AccountName} (Account Manager, mention Account Sender Name)
+Opportunity Name{!$Input:Opportunity.Name}
+Opportunity Owner: {!$Input:Opportunity.Owner.Alias}(no need to mention this)
+Stage: {!$Input:Opportunity.StageName}
+Contract End Date: {!$Input:Opportunity.Contract.EndDate}
+Last Activity Date: {!$Input:Opportunity.LastActivityDate} If it is null or empty, display Last Activity Date: No activity in the past.
+CSAT score: {!$Input:Opportunity.CSAT_Score__c} If is null or empty, use 0.
+Open Cases: {!$Input:openCases}  If is null or empty, use 0.
+Template Type:{!$Input:emailTemplateType}
+Instructions: for this opportunity, generate a personalized outreach email draft using the template type specified that reads account health signals with the data provided for context. Don&apos;t mention the Opportunity Id anywhere. The tone of the email should adjust according to Template Type is for Nurturing use Nurturing Tone and when its Urgent use Urgent Tone.
+Keep professional, concise and brief.
+
+
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>AccountName</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>AccountName</masterLabel>
+            <referenceName>Input:AccountName</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>emailTemplateType</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>emailTemplateType</masterLabel>
+            <referenceName>Input:emailTemplateType</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>receiverName</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>receiverName</masterLabel>
+            <referenceName>Input:receiverName</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>openCases</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>openCases</masterLabel>
+            <referenceName>Input:openCases</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>Opportunity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <masterLabel>Opportunity</masterLabel>
+            <referenceName>Input:Opportunity</referenceName>
+            <required>false</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT54</primaryModel>
+        <status>Published</status>
+        <templateFormat>FormulaExpression</templateFormat>
+        <versionIdentifier>ECC8poReOwqLvZq1xSE+i5CT8DrpJAPdWxIMcaDAjXc=_16</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a Opportunity renewal specialist.
+Always Include a Subject Line.
+Context-
+Opportunity: {!$Input:Opportunity.Id} (Don&apos;t mention this on Draft Mail Response)
+Email Reciever name: {!$Input:receiverName} (greet Reciever)
+SenderName:{!$Input:AccountName} (Account Manager, mention Account Sender Name)
+Opportunity Name{!$Input:Opportunity.Name}
+Opportunity Owner: {!$Input:Opportunity.Owner.Alias}(no need to mention this)
+Stage: {!$Input:Opportunity.StageName}
+Contract End Date: {!$Input:Opportunity.Contract.EndDate}
+Last Activity Date: {!$Input:Opportunity.LastActivityDate} If it is null or empty, display Last Activity Date: No activity in the past.
+CSAT score: {!$Input:Opportunity.CSAT_Score__c} If is null or empty, use 0.
+Open Cases: {!$Input:openCases}  If is null or empty, use 0.
+Template Type:{!$Input:emailTemplateType}
+Instructions: for this opportunity, generate a personalized outreach email draft using the template type specified that reads account health signals with the data provided for context. Don&apos;t mention the Opportunity Id anywhere. The tone of the email should adjust according to Template Type is for Nurturing use Nurturing Tone and when its Urgent use Urgent Tone.  If Last Activity Date value is null or empty, display Last Activity Date: No activity in the past. If CSAT score is null or empty, use 0.
+Keep professional, concise and brief.
+
+
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>Opportunity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <masterLabel>Opportunity</masterLabel>
+            <referenceName>Input:Opportunity</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>openCases</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>openCases</masterLabel>
+            <referenceName>Input:openCases</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>receiverName</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>receiverName</masterLabel>
+            <referenceName>Input:receiverName</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>emailTemplateType</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>emailTemplateType</masterLabel>
+            <referenceName>Input:emailTemplateType</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>AccountName</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>AccountName</masterLabel>
+            <referenceName>Input:AccountName</referenceName>
+            <required>false</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT54</primaryModel>
+        <status>Published</status>
+        <templateFormat>FormulaExpression</templateFormat>
+        <versionIdentifier>ECC8poReOwqLvZq1xSE+i5CT8DrpJAPdWxIMcaDAjXc=_17</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a Opportunity renewal specialist.
+Always Include a Subject Line.
+Context-
+Opportunity: {!$Input:Opportunity.Id} (Don&apos;t mention this on Draft Mail Response)
+Email Reciever name: {!$Input:receiverName} (greet Reciever)
+SenderName:{!$Input:AccountName} (Account Manager, mention Account Sender Name)
+Opportunity Name{!$Input:Opportunity.Name}
+Opportunity Owner: {!$Input:Opportunity.Owner.Alias}(no need to mention this)
+Stage: {!$Input:Opportunity.StageName}
+Contract End Date: {!$Input:Opportunity.Contract.EndDate}
+Last Activity Date: {!$Input:Opportunity.LastActivityDate} If it is null or empty, display Last Activity Date: No activity in the past.
+CSAT score: {!$Input:Opportunity.CSAT_Score__c} If is null or empty, use 0.
+Open Cases: {!$Input:openCases}  If is null or empty, use 0.
+Template Type:{!$Input:emailTemplateType}
+Instructions: for this opportunity, generate a personalized outreach email draft using the template type specified that reads account health signals with the data provided for context. Don&apos;t mention the Opportunity Id anywhere. The tone of the email should adjust according to Template Type is for Nurturing use Nurturing Tone and when its Urgent use Urgent Tone.
+Keep professional, concise and brief.
+
+
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>Opportunity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <masterLabel>Opportunity</masterLabel>
+            <referenceName>Input:Opportunity</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>openCases</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>openCases</masterLabel>
+            <referenceName>Input:openCases</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>receiverName</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>receiverName</masterLabel>
+            <referenceName>Input:receiverName</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>emailTemplateType</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>emailTemplateType</masterLabel>
+            <referenceName>Input:emailTemplateType</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>AccountName</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>AccountName</masterLabel>
+            <referenceName>Input:AccountName</referenceName>
+            <required>false</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT54</primaryModel>
+        <status>Draft</status>
+        <templateFormat>FormulaExpression</templateFormat>
+        <versionIdentifier>ECC8poReOwqLvZq1xSE+i5CT8DrpJAPdWxIMcaDAjXc=_18</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

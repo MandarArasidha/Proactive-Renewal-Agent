@@ -1,0 +1,28 @@
+{
+  "required" : [ ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "inactivityDays" : {
+      "title" : "inactivityDays",
+      "description" : "The minimum number of days since the last customer activity required for an Opportunity to qualify for outreach generation. Examples: If the user asks for opportunities with no activity for 14 or more days, set this value to 14. If the user specifies inactivity periods such as 7 days, 30 days, or 60 days, populate this value accordingly. Use Opportunity LastActivityDate to evaluate inactivity.",
+      "lightning:type" : "lightning__integerType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "IsClosed" : {
+      "title" : "IsClosed",
+      "description" : "Check if the User is mentioning the Opportunity Closed or Open. if user specify Open then put Parameter as FALSE and if Closed then Put Parameter TRUE inside this Input.",
+      "lightning:type" : "lightning__booleanType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "renewalDays" : {
+      "title" : "renewalDays",
+      "description" : "The maximum number of days remaining until Contract End Date for Opportunities to qualify for bulk outreach generation. Examples: If the user asks for opportunities renewing within 30 days, set this value to 30. If omitted, use the default renewal threshold configured by the business process.",
+      "lightning:type" : "lightning__integerType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

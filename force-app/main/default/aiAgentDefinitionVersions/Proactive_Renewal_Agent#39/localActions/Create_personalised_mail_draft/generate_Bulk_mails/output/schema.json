@@ -1,0 +1,94 @@
+{
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "ContractEndDate" : {
+      "title" : "ContractEndDate",
+      "description" : "should not normally be shown directly to end users.",
+      "lightning:type" : "lightning__dateType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    },
+    "csatScore" : {
+      "title" : "csatScore",
+      "description" : "should not normally be shown directly to end users.",
+      "lightning:type" : "lightning__numberType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    },
+    "emailTemplateType" : {
+      "title" : "emailTemplateType",
+      "description" : "should not normally be shown directly to end users.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    },
+    "LastActivityDate" : {
+      "title" : "LastActivityDate",
+      "description" : "should not normally be shown directly to end users.",
+      "lightning:type" : "lightning__dateType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    },
+    "openCases" : {
+      "title" : "openCases",
+      "description" : "should not normally be shown directly to end users.",
+      "lightning:type" : "lightning__integerType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    },
+    "opportunity" : {
+      "title" : "opportunity",
+      "description" : "should not normally be shown directly to end users.",
+      "lightning:type" : "lightning__recordIdType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    },
+    "opportunityName" : {
+      "title" : "opportunityName",
+      "description" : "should not normally be shown directly to end users.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    },
+    "OpportunityOwner" : {
+      "title" : "OpportunityOwner",
+      "description" : "should not normally be shown directly to end users.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    },
+    "RecieverName" : {
+      "title" : "RecieverName",
+      "description" : "should not normally be shown directly to end users.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    },
+    "StageName" : {
+      "title" : "StageName",
+      "description" : "should not normally be shown directly to end users.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    },
+    "totalOpportunity" : {
+      "title" : "totalOpportunity",
+      "description" : "The total number of Opportunities selected for processing during the current bulk operation. This is recommended to be shown to end user.",
+      "lightning:type" : "lightning__integerType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

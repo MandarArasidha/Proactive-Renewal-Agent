@@ -1,0 +1,77 @@
+{
+  "required" : [ "opportunityId" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "AccountOwnerId" : {
+      "title" : "AccountOwnerId",
+      "description" : "Account Owner User Id to mention in the Chatter post.",
+      "lightning:type" : "lightning__recordIdType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "chatterSummary" : {
+      "title" : "chatterSummary",
+      "description" : "Agent generated summary of renewal risk and recommended actions.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "contractEndDate" : {
+      "title" : "contractEndDate",
+      "description" : "Contract End Date associated with the Opportunity.",
+      "lightning:type" : "lightning__dateType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "csatScore" : {
+      "title" : "csatScore",
+      "description" : "Customer Satisfaction Score associated with the Opportunity.",
+      "lightning:type" : "lightning__numberType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "lastActivityDate" : {
+      "title" : "lastActivityDate",
+      "description" : "Most recent customer activity date.",
+      "lightning:type" : "lightning__dateType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "mailDraftId" : {
+      "title" : "mailDraftId",
+      "description" : "EmailMessage Id of the generated draft email. If omitted, the latest draft email related to the Opportunity will be used.",
+      "lightning:type" : "lightning__recordIdType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "openCases" : {
+      "title" : "openCases",
+      "description" : "Number of open support cases associated with the Account.",
+      "lightning:type" : "lightning__integerType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "opportunityId" : {
+      "title" : "opportunityId",
+      "description" : "Opportunity record on which the Chatter notification should be posted.",
+      "lightning:type" : "lightning__recordIdType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "opportunityName" : {
+      "title" : "opportunityName",
+      "description" : "Opportunity Name for personalization.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "opportunityStage" : {
+      "title" : "opportunityStage",
+      "description" : "Current Opportunity Stage.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

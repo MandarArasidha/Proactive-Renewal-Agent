@@ -1,0 +1,63 @@
+{
+  "required" : [ "relatedRecordId", "taskComments", "taskSubject" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "assignedToUserId" : {
+      "title" : "assignedToUserId",
+      "description" : "The Salesforce record Id that the task should be related to using the Related To field (WhatId). Typically this is an Opportunity or Account record obtained from context or a Get Records action.",
+      "lightning:type" : "lightning__recordIdType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "dueDate" : {
+      "title" : "dueDate",
+      "description" : "The due date for the task. If not provided by the user, use an appropriate default value.",
+      "lightning:type" : "lightning__dateType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "primaryContactName" : {
+      "title" : "primaryContactName",
+      "description" : "The Salesforce Contact Id to associate with the task using the Name field (WhoId). Use this when the user refers to the customer, contact person, or recipient of the outreach activity using phrases such as call, email, contact, reach out to, or follow up with.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "priority" : {
+      "title" : "priority",
+      "description" : "The priority of the task. Valid values include Low, Normal, and High.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "relatedRecordId" : {
+      "title" : "relatedRecordId",
+      "description" : "The Salesforce record Id to associate with the task using the Related To field (WhatId). This field must reference a business record such as an Opportunity or Account and must not contain Contact or Lead records. Use the Opportunity or Account provided through record context or retrieved through a Get Records action. Always ask to Add Relavant Opportunity Id or WhatId when not Available",
+      "lightning:type" : "lightning__recordIdType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "status" : {
+      "title" : "status",
+      "description" : "The initial status of the task. Typical values are Not Started, In Progress, or Completed.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "taskComments" : {
+      "title" : "taskComments",
+      "description" : "The detailed task description or comments generated from the user's request. Include any instructions, context, or action items mentioned by the user.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "taskSubject" : {
+      "title" : "taskSubject",
+      "description" : "Select the most appropriate Task Subject picklist value based on the user's request or draft instructions. Choose only from the available Task Subject values configured in Salesforce and select the value that best matches the intended activity or follow-up action.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

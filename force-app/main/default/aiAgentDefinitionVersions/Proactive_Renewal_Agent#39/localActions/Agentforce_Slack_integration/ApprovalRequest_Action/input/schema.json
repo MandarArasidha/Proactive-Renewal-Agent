@@ -1,0 +1,28 @@
+{
+  "required" : [ "action", "workItemId" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "action" : {
+      "title" : "action",
+      "description" : "This takes the input in text form 'Approve' or 'reject'. as per the User intention take appropriate word here.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "comments" : {
+      "title" : "comments",
+      "description" : "If user provide the Reason for approval note it for this input",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "workItemId" : {
+      "title" : "workItemId",
+      "description" : "This is the ProcessInstanceWorkItem ID that is being approved",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

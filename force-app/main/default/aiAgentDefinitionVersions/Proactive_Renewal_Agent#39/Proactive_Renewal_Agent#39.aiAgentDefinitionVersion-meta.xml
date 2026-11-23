@@ -1,0 +1,994 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AiAgentDefinitionVersion xmlns="http://soap.sforce.com/2006/04/metadata">
+    <articleAnswersGPTEnabled>false</articleAnswersGPTEnabled>
+    <billingMode>ActionBased</billingMode>
+    <citationsEnabled>false</citationsEnabled>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>The agent instructions</description>
+        <developerName>AgentScriptInternal_agent_instructions</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Agent Instructions</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>The next topic to be visited</description>
+        <developerName>AgentScriptInternal_next_topic</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Next Topic</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>OpportunityIdContext</description>
+        <developerName>OpportunityIdContext</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>OpportunityIdContext</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>This variable may also be referred to as VerifiedCustomerId</description>
+        <developerName>VerifiedCustomerId</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Verified Customer Id</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>Salesforce Application Name</description>
+        <developerName>currentAppName</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Current App Name</label>
+        <visibility>External</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>The API name of the current Salesforce object</description>
+        <developerName>currentObjectApiName</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Current Object Api Name</label>
+        <visibility>External</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>Page type (record, list, home)</description>
+        <developerName>currentPageType</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Current Page Type</label>
+        <visibility>External</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>The Salesforce ID of the current record</description>
+        <developerName>currentRecordId</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Current Record Id</label>
+        <visibility>External</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Object</dataType>
+        <description>This Mail Generated that was drafted can be added as Link to chatter notification.</description>
+        <developerName>recentEmailDraftLink</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>recentEmailDraftLink</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <copilotPrimaryLanguage>en_US</copilotPrimaryLanguage>
+    <copilotSecondaryLanguages>en_GB</copilotSecondaryLanguages>
+    <genAiPlannerName>Proactive_Renewal_Agent_v39</genAiPlannerName>
+    <isScriptCompatibleAgent>true</isScriptCompatibleAgent>
+    <knowledgeActionEnabled>false</knowledgeActionEnabled>
+    <knowledgeFallbackEnabled>false</knowledgeFallbackEnabled>
+    <planner>
+        <fullName>Proactive_Renewal_Agent_v39</fullName>
+        <agentGraphRef>20ZdM00000AJla9</agentGraphRef>
+        <agentScript>20ZdM0000089u3B</agentScript>
+        <description>This agent proactively identifies Renewal Opportunities that require attention and prioritization. It analyzes open Renewal Opportunities using factors such as contract expiration dates, customer engagement history, CSAT scores, support case activity, and overall account health signals to assess renewal risk.
+Based on this analysis, the agent determines the likelihood of churn or delayed renewal and recommends appropriate next actions. It generates personalized renewal outreach email drafts tailored to the customer&apos;s situation, suggests engagement strategies, and automatically creates follow-up tasks for Opportunity owners to ensure timely action.
+The objective of the agent is to improve renewal outcomes, increase customer retention, and reduce churn risk through proactive and intelligent intervention.</description>
+        <localTopicLinks>
+            <genAiPluginName>Agentforce_Slack_integration</genAiPluginName>
+        </localTopicLinks>
+        <localTopicLinks>
+            <genAiPluginName>Approval_subagent</genAiPluginName>
+        </localTopicLinks>
+        <localTopicLinks>
+            <genAiPluginName>Create_Task</genAiPluginName>
+        </localTopicLinks>
+        <localTopicLinks>
+            <genAiPluginName>Create_personalised_mail_draft</genAiPluginName>
+        </localTopicLinks>
+        <localTopicLinks>
+            <genAiPluginName>General_Agent</genAiPluginName>
+        </localTopicLinks>
+        <localTopicLinks>
+            <genAiPluginName>Post_Chatter_Notifications</genAiPluginName>
+        </localTopicLinks>
+        <localTopicLinks>
+            <genAiPluginName>agent_router</genAiPluginName>
+        </localTopicLinks>
+        <localTopicLinks>
+            <genAiPluginName>ambiguous_question</genAiPluginName>
+        </localTopicLinks>
+        <localTopicLinks>
+            <genAiPluginName>off_topic</genAiPluginName>
+        </localTopicLinks>
+        <localTopics>
+            <canEscalate>false</canEscalate>
+            <description>performs operations based on user request via slack. User will Ask the Salesforce related question execute the steps that are required to find necessary details</description>
+            <genAiPluginInstructions>
+                <description>You are an AI Agent.
+
+The user&apos;s current context is:
+Current App Name: {{state.currentAppName}}
+Current Object Name: {{state.currentObjectApiName}}
+Current Page Type: {{state.currentPageType}}
+Current Record ID: {{state.currentRecordId}}</description>
+                <developerName>instruction0_179dM000005u2p8</developerName>
+                <language>en_US</language>
+                <masterLabel>instruction0_179dM000005u2p8</masterLabel>
+                <sortOrder>1</sortOrder>
+            </genAiPluginInstructions>
+            <language>en_US</language>
+            <localActionLinks>
+                <functionName>SendMessageAsAgent</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>SendMessageToSlackChannel</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>IdentifyObjectByName</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>CreateSlackChannel</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>QueryRecords</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>IdentifyRecordByName</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>SendSlackDirectMessage</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>ApprovalRequest_Action</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>GetRecordDetails</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>SummarizeRecord</functionName>
+            </localActionLinks>
+            <localActions>
+                <description>Approves a pending ProcessInstanceWorkItem (approval request). The action succeeds only if the specified approver has permission to approve the request.</description>
+                <invocationTarget>approveRequestInvocableAction</invocationTarget>
+                <invocationTargetType>apex</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+                <localDeveloperName>ApprovalRequest_Action</localDeveloperName>
+                <masterLabel>ApprovalRequest Action</masterLabel>
+            </localActions>
+            <localActions>
+                <description>Create a Slack Channel.
+Ask the end user for a Channel name, the Team ID (or Workspace ID) to create the Slack Channel in and whether the Channel is public or private, unless these details are already provided.
+Upon successful completion, provide the channel at-mention and url to the user along with a friendly message.</description>
+                <invocationTarget>slackAgentDynamic__CreateChannel</invocationTarget>
+                <invocationTargetType>slack</invocationTargetType>
+                <isConfirmationRequired>true</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>CreateSlackChannel</localDeveloperName>
+                <masterLabel>Create a Slack Channel</masterLabel>
+                <progressIndicatorMessage>Creating a Slack channel...</progressIndicatorMessage>
+                <source>Slack__CreateSlackChannel</source>
+            </localActions>
+            <localActions>
+                <description>Generates a text blob containing record details, including object fields and values and records from related lists.</description>
+                <invocationTarget>getDataForGrounding</invocationTarget>
+                <invocationTargetType>standardInvocableAction</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>GetRecordDetails</localDeveloperName>
+                <masterLabel>Get Record Details</masterLabel>
+                <progressIndicatorMessage>Getting details</progressIndicatorMessage>
+                <source>EmployeeCopilot__GetRecordDetails</source>
+            </localActions>
+            <localActions>
+                <description>Finds the Salesforce object API name by extracting an object name from the user input.</description>
+                <invocationTarget>identifyObject</invocationTarget>
+                <invocationTargetType>standardInvocableAction</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>IdentifyObjectByName</localDeveloperName>
+                <masterLabel>Identify Object by Name</masterLabel>
+                <source>EmployeeCopilot__IdentifyObjectByName</source>
+            </localActions>
+            <localActions>
+                <description>Searches for Salesforce CRM records by name and returns a list of matching Salesforce CRM record IDs.</description>
+                <invocationTarget>identifyRecordByName</invocationTarget>
+                <invocationTargetType>standardInvocableAction</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>IdentifyRecordByName</localDeveloperName>
+                <masterLabel>Identify Record by Name</masterLabel>
+                <source>EmployeeCopilot__IdentifyRecordByName</source>
+            </localActions>
+            <localActions>
+                <description>Finds and retrieves Salesforce CRM records based on user input and specific conditions, such as field values. This action automatically identifies the correct records and object type. e.g. &apos;Find all open opportunities created in the last 5 days sorted by created date.&apos;</description>
+                <invocationTarget>queryRecords</invocationTarget>
+                <invocationTargetType>standardInvocableAction</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>QueryRecords</localDeveloperName>
+                <masterLabel>Query Records</masterLabel>
+                <source>EmployeeCopilot__QueryRecords</source>
+            </localActions>
+            <localActions>
+                <description>Use to send notifications or messages to specific Slack users in a direct message from the agent.
+Messages may be sent in plain text or formatted using Markdown.
+This action is intended to send notifications, inform or message specific Slack Users.
+This action cannot be used to send messages to channels.
+Upon successful completion, provide the user a friendly confirmation with a link to the message (in markdown).</description>
+                <invocationTarget>slackAgentDynamic__SendMessageAsAgent</invocationTarget>
+                <invocationTargetType>slack</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>SendMessageAsAgent</localDeveloperName>
+                <masterLabel>Start a Slack conversation with an Agent</masterLabel>
+                <progressIndicatorMessage>Starting a Slack conversation with an Agent...</progressIndicatorMessage>
+                <source>Slack__SendMessageAsAgent</source>
+            </localActions>
+            <localActions>
+                <description>Sends a message to a public or private Slack Channel.
+Messages may be in plaintext or Markdown format.
+This action is intended for group communication, announcements, or notifications within channels.
+This action should not be used to send direct messages to individuals.
+Upon successful completion, provide the user a friendly confirmation with a link to the message (in markdown).</description>
+                <invocationTarget>slackAgentDynamic__SendMessageToSlackChannel</invocationTarget>
+                <invocationTargetType>slack</invocationTargetType>
+                <isConfirmationRequired>true</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>SendMessageToSlackChannel</localDeveloperName>
+                <masterLabel>Send Message to a Slack Channel</masterLabel>
+                <progressIndicatorMessage>Sending message...</progressIndicatorMessage>
+                <source>Slack__SendMessageToSlackChannel</source>
+            </localActions>
+            <localActions>
+                <description>Given plain text or markdown text, send a direct message (DM) in Slack with the recipient and sender users in the DM channel.
+You can add sections, include links, references, and any other information you deem relevant.
+Provide the message url to the user along with a friendly message.
+Upon successful completion, provide the user a friendly confirmation with a link to the message (in markdown).</description>
+                <invocationTarget>slackAgentSendDirectMessage</invocationTarget>
+                <invocationTargetType>standardInvocableAction</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>SendSlackDirectMessage</localDeveloperName>
+                <masterLabel>Send a Slack Direct Message</masterLabel>
+                <progressIndicatorMessage>Sending Slack direct message...</progressIndicatorMessage>
+                <source>Slack__SendSlackDirectMessage</source>
+            </localActions>
+            <localActions>
+                <description>Summarizes a single Salesforce CRM record. You must call summarizeRecord only if the user explicitly asks for a summary (e.g: &apos;Summary&apos;, &apos;Recap&apos;, &apos;Highlights&apos;). This action should be called only when there isn&apos;t a more specific summarization action.</description>
+                <invocationTarget>getRecordSummarizationPrompt</invocationTarget>
+                <invocationTargetType>standardInvocableAction</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>SummarizeRecord</localDeveloperName>
+                <masterLabel>Summarize Record</masterLabel>
+                <progressIndicatorMessage>Summarizing</progressIndicatorMessage>
+                <source>EmployeeCopilot__SummarizeRecord</source>
+            </localActions>
+            <localDeveloperName>Agentforce_Slack_integration</localDeveloperName>
+            <masterLabel>Agentforce Slack integration</masterLabel>
+            <pluginType>Topic</pluginType>
+        </localTopics>
+        <localTopics>
+            <canEscalate>false</canEscalate>
+            <description>This agent is responsible for approving the requests</description>
+            <genAiPluginInstructions>
+                <description>You are an AI Agent.
+
+The user&apos;s current context is:
+Current App Name: {{state.currentAppName}}
+Current Object Name: {{state.currentObjectApiName}}
+Current Page Type: {{state.currentPageType}}
+Current Record ID: {{state.currentRecordId}}</description>
+                <developerName>instruction0_179dM000005u2p4</developerName>
+                <language>en_US</language>
+                <masterLabel>instruction0_179dM000005u2p4</masterLabel>
+                <sortOrder>1</sortOrder>
+            </genAiPluginInstructions>
+            <language>en_US</language>
+            <localActionLinks>
+                <functionName>IdentifyObjectByName</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>QueryRecords</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>IdentifyRecordByName</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>ProcessInstanceWorkItem_Id_Action</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>ApprovalRequest_Action</functionName>
+            </localActionLinks>
+            <localActions>
+                <description>Approves a pending ProcessInstanceWorkItem (approval request). The action succeeds only if the specified approver has permission to approve the request.</description>
+                <invocationTarget>approveRequestInvocableAction</invocationTarget>
+                <invocationTargetType>apex</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+                <localDeveloperName>ApprovalRequest_Action</localDeveloperName>
+                <masterLabel>ApprovalRequest Action</masterLabel>
+            </localActions>
+            <localActions>
+                <description>Finds the Salesforce object API name by extracting an object name from the user input.</description>
+                <invocationTarget>identifyObject</invocationTarget>
+                <invocationTargetType>standardInvocableAction</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>IdentifyObjectByName</localDeveloperName>
+                <masterLabel>Identify Object by Name</masterLabel>
+                <source>EmployeeCopilot__IdentifyObjectByName</source>
+            </localActions>
+            <localActions>
+                <description>Searches for Salesforce CRM records by name and returns a list of matching Salesforce CRM record IDs.</description>
+                <invocationTarget>identifyRecordByName</invocationTarget>
+                <invocationTargetType>standardInvocableAction</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>IdentifyRecordByName</localDeveloperName>
+                <masterLabel>Identify Record by Name</masterLabel>
+                <source>EmployeeCopilot__IdentifyRecordByName</source>
+            </localActions>
+            <localActions>
+                <description>Gets the Object ProcessInstanceWorkItem</description>
+                <invocationTarget>getApprovalWorkItemInvocable</invocationTarget>
+                <invocationTargetType>apex</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+                <localDeveloperName>ProcessInstanceWorkItem_Id_Action</localDeveloperName>
+                <masterLabel>ProcessInstanceWorkItem Id Action</masterLabel>
+            </localActions>
+            <localActions>
+                <description>Finds and retrieves Salesforce CRM records based on user input and specific conditions, such as field values. This action automatically identifies the correct records and object type. e.g. &apos;Find all open opportunities created in the last 5 days sorted by created date.&apos;</description>
+                <invocationTarget>queryRecords</invocationTarget>
+                <invocationTargetType>standardInvocableAction</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>QueryRecords</localDeveloperName>
+                <masterLabel>Query Records</masterLabel>
+                <source>EmployeeCopilot__QueryRecords</source>
+            </localActions>
+            <localDeveloperName>Approval_subagent</localDeveloperName>
+            <masterLabel>Approval subagent</masterLabel>
+            <pluginType>Topic</pluginType>
+        </localTopics>
+        <localTopics>
+            <canEscalate>false</canEscalate>
+            <description>Creates a Salesforce Task related to an Opportunity or Account using a user-provided subject and comments. Use this action when a user requests a follow-up task, reminder, or activity and provide the Related Record Id, Assigned User Id, and Contact Id when available.</description>
+            <genAiPluginInstructions>
+                <description>You are an AI Agent.
+
+The user&apos;s current context is:
+Current App Name: {{state.currentAppName}}
+Current Object Name: {{state.currentObjectApiName}}
+Current Page Type: {{state.currentPageType}}
+Current Record ID: {{state.currentRecordId}}</description>
+                <developerName>instruction0_179dM000005u2p3</developerName>
+                <language>en_US</language>
+                <masterLabel>instruction0_179dM000005u2p3</masterLabel>
+                <sortOrder>1</sortOrder>
+            </genAiPluginInstructions>
+            <language>en_US</language>
+            <localActionLinks>
+                <functionName>GetRecordDetails</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>QueryRecordsWithAggregate</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>QueryRecords</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>GetActivityDetails</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>IdentifyRecordByName</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>IdentifyObjectByName</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>Create_Task_using_Invocable_Apex</functionName>
+            </localActionLinks>
+            <localActions>
+                <description>Creates a Salesforce Task related to an Opportunity or Account using a user-provided subject and comments. Use this action when a user requests a follow-up task, reminder, or activity and provide the Related Record Id, Assigned User Id, and Contact Id when available.</description>
+                <invocationTarget>createTaskWithAllParmetersInvocable</invocationTarget>
+                <invocationTargetType>apex</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>Create_Task_using_Invocable_Apex</localDeveloperName>
+                <masterLabel>Create Task using Invocable Apex</masterLabel>
+                <progressIndicatorMessage>creating task!</progressIndicatorMessage>
+            </localActions>
+            <localActions>
+                <description>Provides data about an activity record, including its content and other key details. The record type is strictly limited to a Call, Email, Event, or Task.</description>
+                <invocationTarget>getActivityDetails</invocationTarget>
+                <invocationTargetType>standardInvocableAction</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>GetActivityDetails</localDeveloperName>
+                <masterLabel>Get Activity Details</masterLabel>
+                <progressIndicatorMessage>Getting activity details</progressIndicatorMessage>
+                <source>EmployeeCopilot__GetActivityDetails</source>
+            </localActions>
+            <localActions>
+                <description>Generates a text blob containing record details, including object fields and values and records from related lists.</description>
+                <invocationTarget>getDataForGrounding</invocationTarget>
+                <invocationTargetType>standardInvocableAction</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>GetRecordDetails</localDeveloperName>
+                <masterLabel>Get Record Details</masterLabel>
+                <progressIndicatorMessage>Getting details</progressIndicatorMessage>
+                <source>EmployeeCopilot__GetRecordDetails</source>
+            </localActions>
+            <localActions>
+                <description>Finds the Salesforce object API name by extracting an object name from the user input.</description>
+                <invocationTarget>identifyObject</invocationTarget>
+                <invocationTargetType>standardInvocableAction</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>IdentifyObjectByName</localDeveloperName>
+                <masterLabel>Identify Object by Name</masterLabel>
+                <source>EmployeeCopilot__IdentifyObjectByName</source>
+            </localActions>
+            <localActions>
+                <description>Searches for Salesforce CRM records by name and returns a list of matching Salesforce CRM record IDs.</description>
+                <invocationTarget>identifyRecordByName</invocationTarget>
+                <invocationTargetType>standardInvocableAction</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>IdentifyRecordByName</localDeveloperName>
+                <masterLabel>Identify Record by Name</masterLabel>
+                <source>EmployeeCopilot__IdentifyRecordByName</source>
+            </localActions>
+            <localActions>
+                <description>Finds and retrieves Salesforce CRM records based on user input and specific conditions, such as field values. This action automatically identifies the correct records and object type. e.g. &apos;Find all open opportunities created in the last 5 days sorted by created date.&apos;</description>
+                <invocationTarget>queryRecords</invocationTarget>
+                <invocationTargetType>standardInvocableAction</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>QueryRecords</localDeveloperName>
+                <masterLabel>Query Records</masterLabel>
+                <source>EmployeeCopilot__QueryRecords</source>
+            </localActions>
+            <localActions>
+                <description>Answers aggregation questions (such as count, sum, max, min, or average) about Salesforce CRM data based on the user input and specific conditions, such as field values. For example &apos;Find the number of open opportunities created in the last 5 days.&apos;</description>
+                <invocationTarget>queryRecordsWithAggregate</invocationTarget>
+                <invocationTargetType>standardInvocableAction</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>QueryRecordsWithAggregate</localDeveloperName>
+                <masterLabel>Query Records with Aggregate</masterLabel>
+                <source>EmployeeCopilot__QueryRecordsWithAggregate</source>
+            </localActions>
+            <localDeveloperName>Create_Task</localDeveloperName>
+            <masterLabel>Create Task</masterLabel>
+            <pluginType>Topic</pluginType>
+        </localTopics>
+        <localTopics>
+            <canEscalate>false</canEscalate>
+            <description>Use this action when the user requests an email draft, outreach email, renewal email, or customer communication for a Opportunity. Retrieve the Opportunity and related account health information, generate a  using the available context and approved templates, display the complete draft to the user, and save the generated draft to the associated Opportunity record for future review and follow-up actions. Do not send the email or modify Opportunity data.</description>
+            <genAiPluginInstructions>
+                <description>You are an AI Agent.
+
+The user&apos;s current context is:
+Current App Name: {{state.currentAppName}}
+Current Object Name: {{state.currentObjectApiName}}
+Current Page Type: {{state.currentPageType}}
+Current Record ID: {{state.currentRecordId}}</description>
+                <developerName>instruction0_179dM000005u2p9</developerName>
+                <language>en_US</language>
+                <masterLabel>instruction0_179dM000005u2p9</masterLabel>
+                <sortOrder>1</sortOrder>
+            </genAiPluginInstructions>
+            <language>en_US</language>
+            <localActionLinks>
+                <functionName>GetActivityDetails</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>SummarizeRecord</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>IdentifyRecordByName</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>GetAllCasesForContact</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>GetRecordDetails</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>QueryRecordsWithAggregate</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>generate_Bulk_mails</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>Mail_Draft_Prompt_Template_builder</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>IdentifyObjectByName</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>Save_Email_Draft_Action</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>QueryRecords</functionName>
+            </localActionLinks>
+            <localActions>
+                <description>Provides data about an activity record, including its content and other key details. The record type is strictly limited to a Call, Email, Event, or Task.</description>
+                <invocationTarget>getActivityDetails</invocationTarget>
+                <invocationTargetType>standardInvocableAction</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>GetActivityDetails</localDeveloperName>
+                <masterLabel>Get Activity Details</masterLabel>
+                <progressIndicatorMessage>Getting activity details</progressIndicatorMessage>
+                <source>EmployeeCopilot__GetActivityDetails</source>
+            </localActions>
+            <localActions>
+                <description>Returns a list of cases related to a given Contact record.</description>
+                <invocationTarget>SvcCopilotTmpl__GetCasesForContact</invocationTarget>
+                <invocationTargetType>flow</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>GetAllCasesForContact</localDeveloperName>
+                <masterLabel>Get All Cases For Contact</masterLabel>
+                <source>SvcCopilotTmpl__GetAllCasesForContact</source>
+            </localActions>
+            <localActions>
+                <description>Generates a text blob containing record details, including object fields and values and records from related lists.</description>
+                <invocationTarget>getDataForGrounding</invocationTarget>
+                <invocationTargetType>standardInvocableAction</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>GetRecordDetails</localDeveloperName>
+                <masterLabel>Get Record Details</masterLabel>
+                <progressIndicatorMessage>Getting details</progressIndicatorMessage>
+                <source>EmployeeCopilot__GetRecordDetails</source>
+            </localActions>
+            <localActions>
+                <description>Finds the Salesforce object API name by extracting an object name from the user input.</description>
+                <invocationTarget>identifyObject</invocationTarget>
+                <invocationTargetType>standardInvocableAction</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>IdentifyObjectByName</localDeveloperName>
+                <masterLabel>Identify Object by Name</masterLabel>
+                <source>EmployeeCopilot__IdentifyObjectByName</source>
+            </localActions>
+            <localActions>
+                <description>Searches for Salesforce CRM records by name and returns a list of matching Salesforce CRM record IDs.</description>
+                <invocationTarget>identifyRecordByName</invocationTarget>
+                <invocationTargetType>standardInvocableAction</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>IdentifyRecordByName</localDeveloperName>
+                <masterLabel>Identify Record by Name</masterLabel>
+                <source>EmployeeCopilot__IdentifyRecordByName</source>
+            </localActions>
+            <localActions>
+                <description>This generated a Mail Draft using all the necessary details that the standard Assets provide</description>
+                <invocationTarget>Test_Email_Draft_sample</invocationTarget>
+                <invocationTargetType>generatePromptResponse</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>Mail_Draft_Prompt_Template_builder</localDeveloperName>
+                <masterLabel>Mail Draft Prompt Template builder</masterLabel>
+                <progressIndicatorMessage>generating Email Draft for you!</progressIndicatorMessage>
+            </localActions>
+            <localActions>
+                <description>Finds and retrieves Salesforce CRM records based on user input and specific conditions, such as field values. This action automatically identifies the correct records and object type. e.g. &apos;Find all open opportunities created in the last 5 days sorted by created date.&apos;</description>
+                <invocationTarget>queryRecords</invocationTarget>
+                <invocationTargetType>standardInvocableAction</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>QueryRecords</localDeveloperName>
+                <masterLabel>Query Records</masterLabel>
+                <source>EmployeeCopilot__QueryRecords</source>
+            </localActions>
+            <localActions>
+                <description>Answers aggregation questions (such as count, sum, max, min, or average) about Salesforce CRM data based on the user input and specific conditions, such as field values. For example &apos;Find the number of open opportunities created in the last 5 days.&apos;</description>
+                <invocationTarget>queryRecordsWithAggregate</invocationTarget>
+                <invocationTargetType>standardInvocableAction</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>QueryRecordsWithAggregate</localDeveloperName>
+                <masterLabel>Query Records with Aggregate</masterLabel>
+                <source>EmployeeCopilot__QueryRecordsWithAggregate</source>
+            </localActions>
+            <localActions>
+                <description>This take in the Email Draft content and saves the Draft for Email Messages</description>
+                <invocationTarget>generateMailforRequestedOpp</invocationTarget>
+                <invocationTargetType>apex</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>Save_Email_Draft_Action</localDeveloperName>
+                <masterLabel>Save Email Draft Action</masterLabel>
+                <progressIndicatorMessage>Saving your Draft Email Message.</progressIndicatorMessage>
+            </localActions>
+            <localActions>
+                <description>Summarizes a single Salesforce CRM record. You must call summarizeRecord only if the user explicitly asks for a summary (e.g: &apos;Summary&apos;, &apos;Recap&apos;, &apos;Highlights&apos;). This action should be called only when there isn&apos;t a more specific summarization action.</description>
+                <invocationTarget>getRecordSummarizationPrompt</invocationTarget>
+                <invocationTargetType>standardInvocableAction</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>SummarizeRecord</localDeveloperName>
+                <masterLabel>Summarize Record</masterLabel>
+                <progressIndicatorMessage>Summarizing</progressIndicatorMessage>
+                <source>EmployeeCopilot__SummarizeRecord</source>
+            </localActions>
+            <localActions>
+                <description>This invocable method loads all the opportunity with criteria based on the Contract End Date and Last Activity Date, and then Drafts a email for based on the email template type specified.</description>
+                <invocationTarget>generateMailForOpportnuityRenewal</invocationTarget>
+                <invocationTargetType>apex</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>generate_Bulk_mails</localDeveloperName>
+                <masterLabel>generate Bulk Email Drafts</masterLabel>
+                <progressIndicatorMessage>Mail drafts are being generated !</progressIndicatorMessage>
+            </localActions>
+            <localDeveloperName>Create_personalised_mail_draft</localDeveloperName>
+            <masterLabel>Create personalised mail draft</masterLabel>
+            <pluginType>Topic</pluginType>
+        </localTopics>
+        <localTopics>
+            <canEscalate>false</canEscalate>
+            <description>Provides answers to contract renewal and customer retention related business questions by retrieving, aggregating, and analyzing Salesforce data related to Renewal Opportunities, Contracts, Accounts, Cases, Activities, and customer engagement metrics.
+The agent treats Renewal Opportunities as opportunities associated with the renewal of existing customer contracts or subscriptions. It identifies contract renewals that require attention by evaluating contract expiration dates, renewal opportunity status, customer activity, support case history, CSAT scores, and other available account health indicators.
+The agent can retrieve and summarise renewal information, identify contracts approaching expiration, prioritise renewal opportunities based on churn risk, recommend next actions, and coordinate with specialized agents responsible for generating renewal outreach email drafts, creating follow-up tasks, and posting Chatter notifications.
+Also the privileged user can approve the Approval request. for such case traverse to the subagent Agentforce slack integration action ApprovalRequest action.
+The agent acts as the primary entry point for contract renewal management requests and routes actions to the appropriate specialized agents when required.</description>
+            <genAiPluginInstructions>
+                <description>You are an AI Agent.
+
+The user&apos;s current context is:
+Current App Name: {{state.currentAppName}}
+Current Object Name: {{state.currentObjectApiName}}
+Current Page Type: {{state.currentPageType}}
+Current Record ID: {{state.currentRecordId}}</description>
+                <developerName>instruction0_179dM000005u2p6</developerName>
+                <language>en_US</language>
+                <masterLabel>instruction0_179dM000005u2p6</masterLabel>
+                <sortOrder>1</sortOrder>
+            </genAiPluginInstructions>
+            <language>en_US</language>
+            <localActionLinks>
+                <functionName>GetRecordDetails</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>QueryRecords</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>QueryRecordsWithAggregate</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>GetActivityDetails</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>IdentifyRecordByName</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>IdentifyObjectByName</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>SummarizeRecord</functionName>
+            </localActionLinks>
+            <localActions>
+                <description>Provides data about an activity record, including its content and other key details. The record type is strictly limited to a Call, Email, Event, or Task.</description>
+                <invocationTarget>getActivityDetails</invocationTarget>
+                <invocationTargetType>standardInvocableAction</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>GetActivityDetails</localDeveloperName>
+                <masterLabel>Get Activity Details</masterLabel>
+                <progressIndicatorMessage>Getting activity details</progressIndicatorMessage>
+                <source>EmployeeCopilot__GetActivityDetails</source>
+            </localActions>
+            <localActions>
+                <description>Generates a text blob containing record details, including object fields and values and records from related lists.</description>
+                <invocationTarget>getDataForGrounding</invocationTarget>
+                <invocationTargetType>standardInvocableAction</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>GetRecordDetails</localDeveloperName>
+                <masterLabel>Get Record Details</masterLabel>
+                <progressIndicatorMessage>Getting details</progressIndicatorMessage>
+                <source>EmployeeCopilot__GetRecordDetails</source>
+            </localActions>
+            <localActions>
+                <description>Finds the Salesforce object API name by extracting an object name from the user input.</description>
+                <invocationTarget>identifyObject</invocationTarget>
+                <invocationTargetType>standardInvocableAction</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>IdentifyObjectByName</localDeveloperName>
+                <masterLabel>Identify Object by Name</masterLabel>
+                <source>EmployeeCopilot__IdentifyObjectByName</source>
+            </localActions>
+            <localActions>
+                <description>Searches for Salesforce CRM records by name and returns a list of matching Salesforce CRM record IDs.</description>
+                <invocationTarget>identifyRecordByName</invocationTarget>
+                <invocationTargetType>standardInvocableAction</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>IdentifyRecordByName</localDeveloperName>
+                <masterLabel>Identify Record by Name</masterLabel>
+                <source>EmployeeCopilot__IdentifyRecordByName</source>
+            </localActions>
+            <localActions>
+                <description>Finds and retrieves Salesforce CRM records based on user input and specific conditions, such as field values. This action automatically identifies the correct records and object type. e.g. &apos;Find all open opportunities created in the last 5 days sorted by created date.&apos;</description>
+                <invocationTarget>queryRecords</invocationTarget>
+                <invocationTargetType>standardInvocableAction</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>QueryRecords</localDeveloperName>
+                <masterLabel>Query Records</masterLabel>
+                <source>EmployeeCopilot__QueryRecords</source>
+            </localActions>
+            <localActions>
+                <description>Answers aggregation questions (such as count, sum, max, min, or average) about Salesforce CRM data based on the user input and specific conditions, such as field values. For example &apos;Find the number of open opportunities created in the last 5 days.&apos;</description>
+                <invocationTarget>queryRecordsWithAggregate</invocationTarget>
+                <invocationTargetType>standardInvocableAction</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>QueryRecordsWithAggregate</localDeveloperName>
+                <masterLabel>Query Records with Aggregate</masterLabel>
+                <source>EmployeeCopilot__QueryRecordsWithAggregate</source>
+            </localActions>
+            <localActions>
+                <description>Summarizes a single Salesforce CRM record. You must call summarizeRecord only if the user explicitly asks for a summary (e.g: &apos;Summary&apos;, &apos;Recap&apos;, &apos;Highlights&apos;). This action should be called only when there isn&apos;t a more specific summarization action.</description>
+                <invocationTarget>getRecordSummarizationPrompt</invocationTarget>
+                <invocationTargetType>standardInvocableAction</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>SummarizeRecord</localDeveloperName>
+                <masterLabel>Summarize Record</masterLabel>
+                <progressIndicatorMessage>Summarizing</progressIndicatorMessage>
+                <source>EmployeeCopilot__SummarizeRecord</source>
+            </localActions>
+            <localDeveloperName>General_Agent</localDeveloperName>
+            <masterLabel>General Agent</masterLabel>
+            <pluginType>Topic</pluginType>
+        </localTopics>
+        <localTopics>
+            <canEscalate>false</canEscalate>
+            <description>Creates and posts renewal risk notifications on Opportunity Chatter feeds by summarising account health signals, notifying the Opportunity Owner, and linking the generated outreach email draft for review and follow-up actions.</description>
+            <genAiPluginInstructions>
+                <description>You are an AI Agent.
+
+The user&apos;s current context is:
+Current App Name: {{state.currentAppName}}
+Current Object Name: {{state.currentObjectApiName}}
+Current Page Type: {{state.currentPageType}}
+Current Record ID: {{state.currentRecordId}}</description>
+                <developerName>instruction0_179dM000005u2pA</developerName>
+                <language>en_US</language>
+                <masterLabel>instruction0_179dM000005u2pA</masterLabel>
+                <sortOrder>1</sortOrder>
+            </genAiPluginInstructions>
+            <language>en_US</language>
+            <localActionLinks>
+                <functionName>GetRecordDetails</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>QueryRecordsWithAggregate</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>GetActivityDetails</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>IdentifyRecordByName</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>IdentifyObjectByName</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>post_on_chatter</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>QueryRecords</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>GetAllCasesForContact</functionName>
+            </localActionLinks>
+            <localActionLinks>
+                <functionName>SummarizeRecord</functionName>
+            </localActionLinks>
+            <localActions>
+                <description>Provides data about an activity record, including its content and other key details. The record type is strictly limited to a Call, Email, Event, or Task.</description>
+                <invocationTarget>getActivityDetails</invocationTarget>
+                <invocationTargetType>standardInvocableAction</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>GetActivityDetails</localDeveloperName>
+                <masterLabel>Get Activity Details</masterLabel>
+                <progressIndicatorMessage>Getting activity details</progressIndicatorMessage>
+                <source>EmployeeCopilot__GetActivityDetails</source>
+            </localActions>
+            <localActions>
+                <description>Returns a list of cases related to a given Contact record.</description>
+                <invocationTarget>SvcCopilotTmpl__GetCasesForContact</invocationTarget>
+                <invocationTargetType>flow</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>GetAllCasesForContact</localDeveloperName>
+                <masterLabel>Get All Cases For Contact</masterLabel>
+                <source>SvcCopilotTmpl__GetAllCasesForContact</source>
+            </localActions>
+            <localActions>
+                <description>Generates a text blob containing record details, including object fields and values and records from related lists.</description>
+                <invocationTarget>getDataForGrounding</invocationTarget>
+                <invocationTargetType>standardInvocableAction</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>GetRecordDetails</localDeveloperName>
+                <masterLabel>Get Record Details</masterLabel>
+                <progressIndicatorMessage>Getting details</progressIndicatorMessage>
+                <source>EmployeeCopilot__GetRecordDetails</source>
+            </localActions>
+            <localActions>
+                <description>Finds the Salesforce object API name by extracting an object name from the user input.</description>
+                <invocationTarget>identifyObject</invocationTarget>
+                <invocationTargetType>standardInvocableAction</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>IdentifyObjectByName</localDeveloperName>
+                <masterLabel>Identify Object by Name</masterLabel>
+                <source>EmployeeCopilot__IdentifyObjectByName</source>
+            </localActions>
+            <localActions>
+                <description>Searches for Salesforce CRM records by name and returns a list of matching Salesforce CRM record IDs.</description>
+                <invocationTarget>identifyRecordByName</invocationTarget>
+                <invocationTargetType>standardInvocableAction</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>IdentifyRecordByName</localDeveloperName>
+                <masterLabel>Identify Record by Name</masterLabel>
+                <source>EmployeeCopilot__IdentifyRecordByName</source>
+            </localActions>
+            <localActions>
+                <description>Finds and retrieves Salesforce CRM records based on user input and specific conditions, such as field values. This action automatically identifies the correct records and object type. e.g. &apos;Find all open opportunities created in the last 5 days sorted by created date.&apos;</description>
+                <invocationTarget>queryRecords</invocationTarget>
+                <invocationTargetType>standardInvocableAction</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>QueryRecords</localDeveloperName>
+                <masterLabel>Query Records</masterLabel>
+                <source>EmployeeCopilot__QueryRecords</source>
+            </localActions>
+            <localActions>
+                <description>Answers aggregation questions (such as count, sum, max, min, or average) about Salesforce CRM data based on the user input and specific conditions, such as field values. For example &apos;Find the number of open opportunities created in the last 5 days.&apos;</description>
+                <invocationTarget>queryRecordsWithAggregate</invocationTarget>
+                <invocationTargetType>standardInvocableAction</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>QueryRecordsWithAggregate</localDeveloperName>
+                <masterLabel>Query Records with Aggregate</masterLabel>
+                <source>EmployeeCopilot__QueryRecordsWithAggregate</source>
+            </localActions>
+            <localActions>
+                <description>Summarizes a single Salesforce CRM record. You must call summarizeRecord only if the user explicitly asks for a summary (e.g: &apos;Summary&apos;, &apos;Recap&apos;, &apos;Highlights&apos;). This action should be called only when there isn&apos;t a more specific summarization action.</description>
+                <invocationTarget>getRecordSummarizationPrompt</invocationTarget>
+                <invocationTargetType>standardInvocableAction</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>SummarizeRecord</localDeveloperName>
+                <masterLabel>Summarize Record</masterLabel>
+                <progressIndicatorMessage>Summarizing</progressIndicatorMessage>
+                <source>EmployeeCopilot__SummarizeRecord</source>
+            </localActions>
+            <localActions>
+                <description>Posts a Chatter notification summarising renewal risk that mentions Account Owner User Id and links the generated email draft.</description>
+                <invocationTarget>postAIGeneratedChatterMessage</invocationTarget>
+                <invocationTargetType>apex</invocationTargetType>
+                <isConfirmationRequired>false</isConfirmationRequired>
+                <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+                <localDeveloperName>post_on_chatter</localDeveloperName>
+                <masterLabel>post on chatter</masterLabel>
+                <progressIndicatorMessage>posting on chatter! this might take a while</progressIndicatorMessage>
+            </localActions>
+            <localDeveloperName>Post_Chatter_Notifications</localDeveloperName>
+            <masterLabel>Post Chatter Notifications</masterLabel>
+            <pluginType>Topic</pluginType>
+        </localTopics>
+        <localTopics>
+            <canEscalate>false</canEscalate>
+            <description>Welcome the user and determine the appropriate subagent based on user input</description>
+            <genAiPluginInstructions>
+                <description>You are an AI Agent.
+
+The user&apos;s current context is:
+Current App Name: {{state.currentAppName}}
+Current Object Name: {{state.currentObjectApiName}}
+Current Page Type: {{state.currentPageType}}
+Current Record ID: {{state.currentRecordId}}
+
+{{state.AgentScriptInternal_agent_instructions}}</description>
+                <developerName>instruction0_179dM000005u2pB</developerName>
+                <language>en_US</language>
+                <masterLabel>instruction0_179dM000005u2pB</masterLabel>
+                <sortOrder>1</sortOrder>
+            </genAiPluginInstructions>
+            <language>en_US</language>
+            <localDeveloperName>agent_router</localDeveloperName>
+            <masterLabel>Agent Router</masterLabel>
+            <pluginType>Topic</pluginType>
+        </localTopics>
+        <localTopics>
+            <canEscalate>false</canEscalate>
+            <description>Redirect conversation to relevant topics when user request is too ambiguous</description>
+            <genAiPluginInstructions>
+                <description>You are an AI Agent.
+
+The user&apos;s current context is:
+Current App Name: {{state.currentAppName}}
+Current Object Name: {{state.currentObjectApiName}}
+Current Page Type: {{state.currentPageType}}
+Current Record ID: {{state.currentRecordId}}</description>
+                <developerName>instruction0_179dM000005u2p7</developerName>
+                <language>en_US</language>
+                <masterLabel>instruction0_179dM000005u2p7</masterLabel>
+                <sortOrder>1</sortOrder>
+            </genAiPluginInstructions>
+            <language>en_US</language>
+            <localDeveloperName>ambiguous_question</localDeveloperName>
+            <masterLabel>Ambiguous Question</masterLabel>
+            <pluginType>Topic</pluginType>
+        </localTopics>
+        <localTopics>
+            <canEscalate>false</canEscalate>
+            <description>Redirect conversation to relevant topics when user request goes off-topic</description>
+            <genAiPluginInstructions>
+                <description>You are an AI Agent.
+
+The user&apos;s current context is:
+Current App Name: {{state.currentAppName}}
+Current Object Name: {{state.currentObjectApiName}}
+Current Page Type: {{state.currentPageType}}
+Current Record ID: {{state.currentRecordId}}</description>
+                <developerName>instruction0_179dM000005u2p5</developerName>
+                <language>en_US</language>
+                <masterLabel>instruction0_179dM000005u2p5</masterLabel>
+                <sortOrder>1</sortOrder>
+            </genAiPluginInstructions>
+            <language>en_US</language>
+            <localDeveloperName>off_topic</localDeveloperName>
+            <masterLabel>Off Topic</masterLabel>
+            <pluginType>Topic</pluginType>
+        </localTopics>
+        <masterLabel>Proactive Renewal Agent</masterLabel>
+        <plannerSurfaces>
+            <adaptiveResponseAllowed>true</adaptiveResponseAllowed>
+            <callRecordingAllowed>false</callRecordingAllowed>
+            <surface>SurfaceAction__Slack</surface>
+            <surfaceType>Slack</surfaceType>
+        </plannerSurfaces>
+        <plannerType>Atlas__ConcurrentMultiAgentOrchestration</plannerType>
+    </planner>
+    <smallTalkEnabled>false</smallTalkEnabled>
+    <staticPromptsEnabled>false</staticPromptsEnabled>
+    <status>Inactive</status>
+    <stopRecPrompts>false</stopRecPrompts>
+    <surfacesEnabled>false</surfacesEnabled>
+    <toneType>Casual</toneType>
+    <version>39</version>
+    <welcomeMessage>Hi, I&apos;m Agentforce! I use AI to search trusted sources, and more. Ask me &quot;What else can you do?&quot; to see how I can simplify your workday. How can I help?</welcomeMessage>
+</AiAgentDefinitionVersion>

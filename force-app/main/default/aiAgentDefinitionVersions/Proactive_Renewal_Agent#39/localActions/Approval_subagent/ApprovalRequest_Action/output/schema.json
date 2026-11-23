@@ -1,0 +1,30 @@
+{
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "message" : {
+      "title" : "message",
+      "description" : "The output of the Outcome for Approval Request being made.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    },
+    "newStatus" : {
+      "title" : "newStatus",
+      "description" : "What status it is ProcessInstanceWorkItem in currently.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    },
+    "success" : {
+      "title" : "success",
+      "description" : "Approval or Disapproval Success Message",
+      "lightning:type" : "lightning__booleanType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}
