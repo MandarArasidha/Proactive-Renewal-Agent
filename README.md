@@ -273,6 +273,102 @@ sf project deploy start --target-org SalesAgentDev
 
 Refer to `docs/deployment.md` for the complete deployment procedure.
 
+
+
+## Post-Deployment Configuration
+
+After deploying the Salesforce metadata, complete the following configuration steps before allowing users to access the Proactive Renewal Agent.
+
+### 1. Assign the Agent Permission Set
+
+1. Navigate to **Setup → Permission Sets**.
+2. Open the `Access Agents` permission set (or the permission set created for Agent access).
+3. Click **Manage Assignments → Add Assignments**.
+4. Select the Salesforce users who should be able to interact with the Proactive Renewal Agent.
+5. Save the assignments.
+
+### 2. Configure Additional Agent Access
+
+1. Navigate to **Setup → Permission Sets**.
+2. Open the permission set assigned to the Agent users.
+3. Under **Apps → Agent Access**, click **Edit**.
+4. Locate `Proactive Renewal Agent`.
+5. Move the Agent into the **Enabled Agents** section.
+6. Save the changes.
+
+   Alternatively, for agents built with the new Agentforce Builder:
+   - Open the Agent in Agentforce Builder.
+   - Navigate to **Settings → Agent Access**.
+   - Add the appropriate permission sets or profiles.
+
+### 3. Configure System Permissions
+
+1. Open the permission set assigned to the Agent users.
+2. Navigate to **System Permissions**.
+3. Click **Edit**.
+4. Enable the required system permissions for the Agent's functionality.
+5. Save the changes.
+
+   Ensure users also have the required:
+   - Apex Class Access.
+   - Object Permissions.
+   - Field-Level Security.
+   - Flow Access.
+   - Any additional permissions required by the Agent actions.
+
+### 4. Configure Slack Integration
+
+The Proactive Renewal Agent can also be accessed through Slack after configuring the Salesforce–Slack connection.
+
+#### Salesforce Configuration
+
+1. Ensure Salesforce is connected to the intended Slack organization.
+2. Open the Proactive Renewal Agent in Agentforce Studio.
+3. Navigate to **Connections**.
+4. Add the Slack connection if it is not already configured.
+5. Commit the Agent version and activate it.
+
+#### Slack Organization Configuration
+
+For Slack Enterprise Grid:
+
+1. Open Slack **Organization Settings**.
+2. Navigate to **Salesforce → Agentforce**.
+3. Locate the Proactive Renewal Agent.
+4. Select **Review Agent**.
+5. Review and approve the Agent installation.
+6. Select the Slack workspace(s) where the Agent should be available.
+7. Click **Add to Workspaces**.
+
+#### Map Salesforce Users to Slack Users
+
+1. Navigate to **Slack Organization Settings → Salesforce → Salesforce Organizations**.
+2. Select the connected Salesforce organization.
+3. Open the **Users** tab.
+4. Select **Add Individually**.
+5. Search for and map the appropriate Slack members to their Salesforce accounts.
+
+#### Configure Agent User Access in Slack
+
+1. Navigate to **Slack Organization Settings → Salesforce → Agentforce**.
+2. Open **Installed Agents**.
+3. Select the Proactive Renewal Agent.
+4. Open **User Permissions**.
+5. Configure **Who can use this agent?**.
+6. Grant access to the intended users or groups.
+
+### 5. Verify Agent Access
+
+Before considering the setup complete:
+
+- Confirm the Agent is activated in Salesforce.
+- Confirm the Agent is enabled in the relevant Salesforce permission set.
+- Confirm the required Salesforce users have been assigned the permission set.
+- Confirm the Agent is installed in the intended Slack workspace.
+- Confirm Salesforce and Slack user mapping is complete.
+- Verify that authorized users can initiate conversations with the Agent.
+
+
 ## Project Objective
 
 The objective of this project is to demonstrate how Salesforce Agentforce can be integrated with existing CRM processes to deliver intelligent sales assistance, proactive renewal management, automated business operations and cross-platform collaboration.
